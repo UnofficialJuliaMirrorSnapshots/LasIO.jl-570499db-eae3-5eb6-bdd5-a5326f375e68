@@ -135,3 +135,6 @@ LasIO.epsg_code!(epsgheader, 32633)  # set to WGS 84 / UTM zone 33N, not the act
 save(srsfile_out, srsheader, srspoints)
 @test hash(read(srsfile)) == hash(read(srsfile_out))
 rm(srsfile_out)
+
+@test boundingbox(header) === (xmin = 1.44e6, ymin = 375000.03, zmin = 832.1800000000001,
+    xmax = 1.44499996e6, ymax = 379999.99, zmax = 972.6700000000001)
